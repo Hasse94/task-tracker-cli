@@ -5,13 +5,13 @@ import json
 FILE_NAME = "tasks.json"
 
 
-def load_tasks():
+def load_tasks(path=FILE_NAME):
     """Return all saved tasks as a list of dictionaries.
 
     Returns an empty list if the file doesn't exist yet or is empty.
     """
     try:
-        with open(FILE_NAME, "r") as f:
+        with open(path, "r") as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         # An empty or corrupted file should behave like a new start,
@@ -19,7 +19,7 @@ def load_tasks():
         return []
 
 
-def save_tasks(tasks):
+def save_tasks(tasks, path=FILE_NAME):
     """Overwrite the file with the given list of tasks."""
-    with open(FILE_NAME, "w") as f:
+    with open(path, "w") as f:
         json.dump(tasks, f, indent=4)
