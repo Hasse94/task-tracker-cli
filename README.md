@@ -39,3 +39,10 @@ Each task is stored as `{"id": 1, "description": "Buy milk", "status": "todo"}`.
 - Tasks are saved in `tasks.json` in the folder where you run the command,
   so run it from the project folder to keep one task list.
 - `tasks.json` is not committed to the repository.
+
+
+## Running the tests
+
+```
+python -m unittest -v
+```
